@@ -1,6 +1,6 @@
 <template>
   <h1>Add Project</h1>
-  <form @submit="addProject">
+  <form @submit.prevent="addProject">
     <label>Project Title</label>
     <input type="text" v-model="title" />
     <label>Project Detail </label>
@@ -21,8 +21,8 @@ export default {
     addProject() {
       fetch('http://localhost:3000/projects', {
         method: "POST",
-        header: {
-          "Content-Type": "Application/Json",
+        headers: {
+          "Content-Type" : "application/json"
         },
         body: JSON.stringify({
           title: this.title,
@@ -31,7 +31,7 @@ export default {
         })
       })
       .then(()=>{
-        this.$router.push('/')
+        this.$router.push("/")
       })
       .catch((error)=>{
         console.log(error)

@@ -13,6 +13,7 @@
 
 <script>
 import SingleProject from "../components/SingleProject";
+
 export default {
   name: "HomeView",
   components: {

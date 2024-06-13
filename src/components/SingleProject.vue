@@ -8,7 +8,11 @@
       </div>
       <div>
         <span class="material-symbols-outlined" @click="deleteProject"> delete </span>
-        <span class="material-symbols-outlined"> edit </span>
+
+        <router-link :to="{name:'editproject', params:{id:single_project.id} }">
+          <span class="material-symbols-outlined"> edit </span>
+        </router-link>
+        
         <span class="material-symbols-outlined" @click="completeProject"> done </span>
       </div>
     </div>
@@ -43,7 +47,7 @@ export default {
       fetch(updateCompleteRoute, {
         method: "PATCH",
         headers: {
-          "Content-Type": "Application/Json",
+          "Content-Type": "application/json",
         },
         body: JSON.stringify({
           complete: !this.single_project.complete,
